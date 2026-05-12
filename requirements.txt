@@ -1,8 +1,6 @@
-<<<<<<< HEAD
+
 streamlit
 pandas
-=======
 streamlit
 pandas
->>>>>>> d4df865a9cde9b046ba4b225d4e02ba7c77bb6af
 scikit-learn
