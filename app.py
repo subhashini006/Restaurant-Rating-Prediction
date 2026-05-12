@@ -130,7 +130,7 @@ if st.button("Predict Rating"):
     prediction = model.predict(input_data)
 
     st.success(f"⭐ Predicted Restaurant Rating: {prediction[0]:.2f}")
-=======
+
 import streamlit as st
 import pandas as pd
 from sklearn.preprocessing import LabelEncoder
