@@ -72,6 +72,10 @@ df = df.dropna()
 df["Cuisines"] = df["Cuisines"].fillna("Unknown")
 
 # ---------------- FEATURES & TARGET ----------------
+df = pd.read_csv("Dataset.csv")
+
+df = df.dropna()
+
 X = df[[ 
     "Country Code",
     "City",
@@ -86,17 +90,21 @@ X = df[[
 
 y = df["Aggregate rating"]
 
-# ---------------- LABEL ENCODING ----------------
+# 🔥 FIX: Convert ALL columns to numeric safely
+from sklearn.preprocessing import LabelEncoder
+
+X = X.copy()
+
 for col in X.columns:
-    if X[col].dtype == "object":
-        X[col] = LabelEncoder().fit_transform(X[col].astype(str))
+    X[col] = LabelEncoder().fit_transform(X[col].astype(str))
 
 y = y.astype(float)
 
-# ---------------- MODEL TRAINING ----------------
+# 🔥 Train model
+from sklearn.tree import DecisionTreeRegressor
+
 model = DecisionTreeRegressor(random_state=42)
 model.fit(X, y)
-
 # ---------------- UI ----------------
 st.title("🍽️ Restaurant Rating Prediction")
 
