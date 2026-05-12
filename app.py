@@ -106,7 +106,7 @@ label {
 """, unsafe_allow_html=True)
 
 # Load Dataset
-df = pd.read_csv("dataset.csv")
+df = pd.read_csv("Dataset .csv")
 
 # Fill Missing Values
 df["Cuisines"] = df["Cuisines"].fillna("Unknown")
